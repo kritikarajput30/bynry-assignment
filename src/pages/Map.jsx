@@ -6,14 +6,18 @@ const Map = () => {
   const lng = searchParams.get('lng');
   const lat = searchParams.get('lat');
 
-  if (!lng || !lat) {
+  // Convert to numbers and handle potential errors
+  const longitude = parseFloat(lng);
+  const latitude = parseFloat(lat);
+
+  if (isNaN(longitude) || isNaN(latitude)) {
     return <div>Please provide valid coordinates in the URL.</div>;
   }
 
   return (
     <div>
       <h1>Map Page</h1>
-      <MapComponent coordinates={[lng,lat]}  />
+      <MapComponent coordinates={[longitude, latitude]} />
     </div>
   );
 };

@@ -21,7 +21,7 @@ const MapComponent = ({ coordinates }) => {
       console.error('Please provide valid coordinates as props.');
       return;
     }
-
+    mapboxgl.accessToken = accessToken;
     mapRef.current = new mapboxgl.Map({
       container: mapContainerRef.current,
       center: coordinates, // Coordinates passed as props [lng, lat]

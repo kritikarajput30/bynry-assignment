@@ -1,7 +1,10 @@
+import Dashboard from "../components/Dashboard"
 
 const Admin = () => {
   return (
-    <div>Admin</div>
+    <div>
+      <Dashboard/>
+    </div>
   )
 }
 

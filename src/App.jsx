@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 
 import User from "./pages/User";
 import Admin from "./pages/Admin";
+import Map from "./pages/Map";
 
 function App() {
 
@@ -13,7 +14,7 @@ function App() {
         <Route path="/" element={<Home/>} />
         <Route path="/user" element={<User/>} />
         <Route path="/admin" element={<Admin />} />
-        {/* <Route path="/map" element={<Map />} /> */}
+        <Route path="/map" element={<Map />} />
 
       </Routes>
     </Router>
