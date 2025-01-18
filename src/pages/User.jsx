@@ -2,7 +2,7 @@ import UserList from "../components/UserList"
 
 const User = () => {
   return (
-    <div>
+    <div className=" md:px-40">
     
       <UserList admin={false}/>
     </div>
