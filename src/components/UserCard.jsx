@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -7,6 +8,17 @@ import UserForm from "./UserForm";
 import { LuMapPin } from "react-icons/lu";
 import { AiOutlineDelete } from "react-icons/ai";
 import { FiEdit2 } from "react-icons/fi";
+
+// Retrieve users from local storage, if any
+const getUsersFromStorage = () => {
+  const storedData = localStorage.getItem('userProfiles');
+  return storedData ? JSON.parse(storedData) : [];
+};
+
+// Save users to local storage
+const saveUsersToStorage = (data) => {
+  localStorage.setItem('userProfiles', JSON.stringify(data));
+};
 
 const UserCard = ({ user, admin = true, onUserUpdate }) => {
   const navigate = useNavigate();
@@ -31,8 +43,12 @@ const UserCard = ({ user, admin = true, onUserUpdate }) => {
 
   const handleModalSubmit = async (updatedUser) => {
     try {
-      const result = await api.updateUser(user.id, updatedUser);
+      const users = getUsersFromStorage();
+      const result = await api.updateUser(updatedUser.id, updatedUser);
       if (result) {
+        // Update local storage after successful update
+        const updatedUsers = users.map(u => u.id === updatedUser.id ? result : u);
+        saveUsersToStorage(updatedUsers);
         toast.success("User updated successfully!");
         onUserUpdate(); // Trigger parent to refresh data
       } else {
@@ -40,7 +56,7 @@ const UserCard = ({ user, admin = true, onUserUpdate }) => {
       }
       handleModalClose();
     } catch (error) {
-      toast.error("An error occurred while updating the user.");
+      console.error("An error occurred while updating the user.");
     }
   };
 
@@ -49,18 +65,21 @@ const UserCard = ({ user, admin = true, onUserUpdate }) => {
     const confirmed = window.confirm("Are you sure you want to delete this user?");
     if (confirmed) {
       try {
+        const users = getUsersFromStorage();
         await api.deleteUser(user.id);
+        // Update local storage after successful deletion
+        const updatedUsers = users.filter(u => u.id !== user.id);
+        saveUsersToStorage(updatedUsers);
         toast.success("User deleted successfully!");
         onUserUpdate(); // Trigger parent to refresh data
       } catch (error) {
-        toast.error("Error deleting user.");
+        console.error("Error deleting user.");
       }
     }
   };
 
   return (
-    <a
-      href={`/profile/${user.id}`}
+    <div
       className="max-w-sm bg-white rounded-lg shadow-md border flex items-center border-gray-200"
     >
       <img
@@ -71,6 +90,12 @@ const UserCard = ({ user, admin = true, onUserUpdate }) => {
       <div className="p-4">
         <h2 className="text-lg font-bold text-gray-800">{user.fullName}</h2>
         <p className="text-gray-600 mt-2">{user.description}</p>
+        <a
+          href={`/profile/${user.id}`} 
+          className="text-blue-600 underline"
+        >
+          View Profile
+        </a>
         <button
           className="border-green-500 border-2 shadow-md p-2 text-sm my-4 text-green-500 flex items-center"
           onClick={(e) => {
@@ -98,7 +123,7 @@ const UserCard = ({ user, admin = true, onUserUpdate }) => {
           onClose={handleModalClose}
         />
       )}
-    </a>
+    </div>
   );
 };
 

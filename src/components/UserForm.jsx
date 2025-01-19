@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import api from '../data/api';
 
 // UserForm Component
 const UserForm = ({ user, onSubmit, onClose }) => {
@@ -9,7 +10,7 @@ const UserForm = ({ user, onSubmit, onClose }) => {
       latitude: '',
       longitude: '',
     },
-    profilePic: '',  // New field
+    profilePicture: '',  // New field
     interests: [],   // New field
     contact: {
       email: '',     // New field
@@ -56,8 +57,9 @@ const UserForm = ({ user, onSubmit, onClose }) => {
       onSubmit(formData);
     } else {
       // Create new user
-      onSubmit(formData);
+      api.addUser(formData);
     }
+    onClose();
   };
 
   return (
@@ -112,7 +114,7 @@ const UserForm = ({ user, onSubmit, onClose }) => {
             <label className="block text-gray-700">Profile Pic</label>
             <input
               type="text"
-              name="profilePic"
+              name="profilePicture"
               onChange={handleChange}
               className="w-full border border-gray-300 p-2 rounded"
             />

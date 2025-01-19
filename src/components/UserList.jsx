@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import UserCard from "./UserCard";
-import data from "../data/data.json"; // Import the local JSON file
+import api from "../data/api";
 
 const UserList = ({ admin }) => {
   const [users, setUsers] = useState([]); // All users from JSON file
@@ -10,10 +10,27 @@ const UserList = ({ admin }) => {
   const [filterType, setFilterType] = useState("all"); // Filter type: "all", "name", or "location"
 
   useEffect(() => {
-    // Load data from JSON
-    setUsers(data);
-    setFilteredUsers(data); // Display all users initially
-  }, []);
+    const fetchData = async () => {
+      try {
+        const fetchedUsers = await api.getUsers();
+        if (fetchedUsers && fetchedUsers.length > 0) {
+          setUsers(fetchedUsers); // Setting the state properly
+          setFilteredUsers(fetchedUsers); // Filter users when page loads
+        } else {
+          console.log("No users found in the storage");
+        }
+      } catch (error) {
+        console.error("Error fetching users:", error);
+        // Optionally handle the error case (show fallback UI)
+      }
+    };
+  
+    fetchData();
+  }, [users]);
+  
+  
+  
+  
 
   useEffect(() => {
     let updatedUsers = users;

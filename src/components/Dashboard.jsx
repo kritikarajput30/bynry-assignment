@@ -69,7 +69,7 @@ const Dashboard = () => {
         toggleOpen && (
           <UserForm
         user={null}
-        onSubmit={() => {}}
+        onSubmit={null}
         onClose={toggleFlip}
       />
         )

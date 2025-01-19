@@ -1,0 +1,167 @@
+[
+  {
+    "id": 1,
+    "fullName": "John Doe",
+    "profilePicture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgWkA3X9cdGn3tggpvy_hnWe0QmRZW-DjwHw&s",
+    "description": "Software Developer",
+    "interests": ["Coding", "Gaming", "Traveling"],
+    "contact": {
+      "email": "johndoe@example.com",
+      "phone": "123-456-7890"
+    },
+    "coordinates": {
+      "latitude": 37.7749,
+      "longitude": -122.4194
+    }
+  },
+  {
+    "id": 2,
+    "fullName": "Jane Smith",
+    "profilePicture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRG9KnXOBG8VHZ8XhrPj9Y8BiR5R2L8HfDi1A&s",
+    "description": "UI/UX Designer",
+    "interests": ["Design", "Photography", "Drawing"],
+    "contact": {
+      "email": "janesmith@example.com",
+      "phone": "234-567-8901"
+    },
+    "coordinates": {
+      "latitude": 40.7128,
+      "longitude": -74.0060
+    }
+  },
+  {
+    "id": 3,
+    "fullName": "Emily Davis",
+    "profilePicture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzM4nA9V8B0Lp3WhuQ6LqWQFuM2VQqEjX0Wg&s",
+    "description": "Project Manager",
+    "interests": ["Leadership", "Reading", "Networking"],
+    "contact": {
+      "email": "emilydavis@example.com",
+      "phone": "345-678-9012"
+    },
+    "coordinates": {
+      "latitude": 34.0522,
+      "longitude": -118.2437
+    }
+  },
+  {
+    "id": 4,
+    "fullName": "Michael Johnson",
+    "profilePicture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9wUoXxWyvV4D_PydE4YtfJ7jA7VpFt6xlUg&s",
+    "description": "Data Scientist",
+    "interests": ["Data Analysis", "Machine Learning", "Python"],
+    "contact": {
+      "email": "michaeljohnson@example.com",
+      "phone": "456-789-0123"
+    },
+    "coordinates": {
+      "latitude": 41.8781,
+      "longitude": -87.6298
+    }
+  },
+  {
+    "id": 5,
+    "fullName": "Laura Martinez",
+    "profilePicture": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Ruchi_cover-2.jpg/220px-Ruchi_cover-2.jpg",
+    "description": "Software Tester",
+    "interests": ["Quality Assurance", "Testing", "Exploration"],
+    "contact": {
+      "email": "lauramartinez@example.com",
+      "phone": "567-890-1234"
+    },
+    "coordinates": {
+      "latitude": 29.7604,
+      "longitude": -95.3698
+    }
+  },
+  {
+    "id": 6,
+    "fullName": "Daniel Wilson",
+    "profilePicture": "https://media.istockphoto.com/id/1387060932/photo/portrait-of-woman-on-white-background-stock-photo.jpg?s=612x612&w=0&k=20&c=jR3ZZt4I9GAHxebkg9zZCsJ6B-VHfKlCd3i7kAHnEHk=",
+    "description": "Full Stack Developer",
+    "interests": ["Web Development", "Node.js", "React"],
+    "contact": {
+      "email": "danielwilson@example.com",
+      "phone": "678-901-2345"
+    },
+    "coordinates": {
+      "latitude": 37.7749,
+      "longitude": -122.4194
+    }
+  },
+  {
+    "id": 7,
+    "fullName": "Sophia Brown",
+    "profilePicture": "https://img.freepik.com/free-photo/beautiful-smiling-young-woman-with-perfect-skin-face-natural-beauty-concept-isolated-grey-studio-background_144627-76888.jpg",
+    "description": "Graphic Designer",
+    "interests": ["Illustration", "Typography", "Designing"],
+    "contact": {
+      "email": "sophiabrown@example.com",
+      "phone": "789-012-3456"
+    },
+    "coordinates": {
+      "latitude": 34.0522,
+      "longitude": -118.2437
+    }
+  },
+  {
+    "id": 8,
+    "fullName": "James White",
+    "profilePicture": "https://img.freepik.com/free-photo/beautiful-charming-girl-wears-pink-hoodie-visor-cap-back_176532-7775.jpg",
+    "description": "Cybersecurity Analyst",
+    "interests": ["Network Security", "Ethical Hacking", "Cryptography"],
+    "contact": {
+      "email": "jameswhite@example.com",
+      "phone": "890-123-4567"
+    },
+    "coordinates": {
+      "latitude": 40.7128,
+      "longitude": -74.0060
+    }
+  },
+  {
+    "id": 9,
+    "fullName": "Olivia Harris",
+    "profilePicture": "https://img.freepik.com/free-photo/front-view-smiley-woman-with-earbuds_23-2148613052.jpg",
+    "description": "Content Writer",
+    "interests": ["Writing", "SEO", "Content Strategy"],
+    "contact": {
+      "email": "oliviaharris@example.com",
+      "phone": "901-234-5678"
+    },
+    "coordinates": {
+      "latitude": 41.8781,
+      "longitude": -87.6298
+    }
+  },
+  {
+    "id": 10,
+    "fullName": "William Lewis",
+    "profilePicture": "https://xsgames.co/randomusers/assets/avatars/male/74.jpg",
+    "description": "DevOps Engineer",
+    "interests": ["Cloud Infrastructure", "CI/CD", "Automation"],
+    "contact": {
+      "email": "williamlewis@example.com",
+      "phone": "123-789-4560"
+    },
+    "coordinates": {
+      "latitude": 29.7604,
+      "longitude": -95.3698
+    }
+  },
+  {
+    "id": 11,
+    "fullName": "Emily Taylor",
+    "profilePicture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFI9EQcHFSOPN5QMpfL4thFzPKBlL4-f0l2TVYAiiKu3-_jAjzaCV0nvEdsSDkSoGp5sM&usqp=CAU",
+    "description": "Mobile App Developer",
+    "interests": ["Android", "iOS Development", "Flutter"],
+    "contact": {
+      "email": "emilytaylor@example.com",
+      "phone": "234-567-8900"
+    },
+    "coordinates": {
+      "latitude": 34.0522,
+      "longitude": -118.2437
+    }
+  }
+]
