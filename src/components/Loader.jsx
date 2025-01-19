@@ -1,11 +1,25 @@
-// components/Loader.jsx
 import React from "react";
+import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
 
 const Loader = () => {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-50">
-      <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500 border-opacity-75"></div>
-    </div>
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100vw",
+        height: "100vh",
+        backgroundColor: "rgba(255, 255, 255, 0.8)",
+        zIndex: 1300,
+      }}
+    >
+      <CircularProgress size={80} color="primary" />
+    </Box>
   );
 };
 

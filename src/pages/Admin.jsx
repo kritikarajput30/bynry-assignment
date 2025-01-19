@@ -1,11 +1,19 @@
-import Dashboard from "../components/Dashboard"
+import React, { useState } from "react";
+import Dashboard from "../components/Dashboard";
+import Loader from "../components/Loader";
 
 const Admin = () => {
-  return (
-    <div>
-      <Dashboard/>
-    </div>
-  )
-}
+  const [loading, setLoading] = useState(true);
 
-export default Admin
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  return <div>{loading ? <Loader /> : <Dashboard />}</div>;
+};
+
+export default Admin;

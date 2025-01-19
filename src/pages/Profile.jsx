@@ -1,11 +1,11 @@
-// Profile.jsx
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import api from "../data/api";
 import MapComponent from "../components/MapComponent";
+import Loader from "../components/Loader";
 
 const Profile = () => {
-  const { id } = useParams(); // Get ID from the URL
+  const { id } = useParams();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -30,7 +30,7 @@ const Profile = () => {
   }, [id]);
 
   if (loading) {
-    return <div className="text-center text-xl mt-10">Loading...</div>;
+    return <Loader />;
   }
 
   if (error) {
@@ -52,12 +52,12 @@ const Profile = () => {
   return (
     <div className="max-w-7xl mx-auto p-6 ">
       <h1 className="text-4xl font-bold text-center mb-10">User Profile</h1>
-      <div className="md:flex items-start  space-y-6 md:space-y-0 md:space-x-10">
-        <div className="md:w-1/2 bg-white  shadow-lg rounded-lg p-6">
+      <div className="md:flex items-start space-y-6 md:space-y-0 md:space-x-10">
+        <div className="md:w-1/2 bg-white shadow-lg rounded-lg p-6">
           <img
             src={user.profilePicture}
             alt={user.fullName}
-            className="w-82 h-80 object-cover  rounded-lg mb-6"
+            className="w-82 h-80 object-cover rounded-lg mb-6"
           />
           <h2 className="text-3xl font-semibold text-center mb-4">
             {user.fullName}

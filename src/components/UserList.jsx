@@ -25,7 +25,7 @@ const UserList = ({ admin }) => {
     };
 
     fetchData();
-  }, [users]);
+  }, []);
 
   useEffect(() => {
     let updatedUsers = users;
