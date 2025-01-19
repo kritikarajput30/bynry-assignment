@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FaBars, FaUsers } from "react-icons/fa";
-import UserList from "./UserList"; // Assuming you have a UserList component
+import UserList from "./UserList";
 import { MdClose } from "react-icons/md";
 import { IoPersonAddOutline, IoSettingsOutline } from "react-icons/io5";
 import UserForm from "./UserForm";
@@ -18,7 +18,6 @@ const Dashboard = () => {
 
   return (
     <div className="flex bg-gray-100">
-      {/* Sidebar (Mobile Drawer) */}
       <div
         className={`fixed top-0 left-0 h-full w-64 bg-white shadow-2xl transform ${
           drawerOpen ? "translate-x-0" : "-translate-x-full"
@@ -36,20 +35,25 @@ const Dashboard = () => {
               >
                 Users
               </li>
-              {/* Add more sidebar options here */}
             </ul>
           </nav>
         </div>
       </div>
 
-      {/* Main Content */}
       <div className="flex-1 p-6 lg:ms-64 ">
         <div className="flex items-center justify-between mb-4">
           <div className=" flex md:justify-between items-center gap-2 w-full">
-          <h2 className="md:text-2xl text-xl font-bold text-gray-800 flex items-center gap-2">Users Management <IoSettingsOutline className=" font-bold text-xl md:text-3xl"/>
-          </h2>
-<button onClick={toggleFlip}  className=" bg-blue-600 px-4 flex items-center shadow-md p-2 gap-1 text-white">New User <IoPersonAddOutline className='text-white rounded-md text-3x' />
-</button>
+            <h2 className="md:text-2xl text-xl font-bold text-gray-800 flex items-center gap-2">
+              Users Management{" "}
+              <IoSettingsOutline className=" font-bold text-xl md:text-3xl" />
+            </h2>
+            <button
+              onClick={toggleFlip}
+              className=" bg-blue-600 px-4 flex items-center shadow-md p-2 gap-1 text-white"
+            >
+              New User{" "}
+              <IoPersonAddOutline className="text-white rounded-md text-3x" />
+            </button>
           </div>
           {drawerOpen ? (
             <MdClose
@@ -65,15 +69,9 @@ const Dashboard = () => {
         </div>
         <UserList admin={true} />
       </div>
-      {
-        toggleOpen && (
-          <UserForm
-        user={null}
-        onSubmit={null}
-        onClose={toggleFlip}
-      />
-        )
-      }
+      {toggleOpen && (
+        <UserForm user={null} onSubmit={null} onClose={toggleFlip} />
+      )}
     </div>
   );
 };

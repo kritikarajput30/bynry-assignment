@@ -11,7 +11,6 @@ const Home = () => {
       <h1 className="text-3xl font-bold mb-8 text-gray-800">Welcome</h1>
       <img src="/bynry_logo.jpg" alt="bynry" />
       <div className="space-y-4 flex gap-8 items-center">
-        {/* User Button */}
         <button
           onClick={() => navigate("/user")}
           className="flex items-center w-40 h-20 justify-center text-2xl border-2 border-blue-600 rounded-2xl gap-2 mt-4 shadow-md transition duration-300"
@@ -20,12 +19,11 @@ const Home = () => {
           User
         </button>
 
-        {/* Admin Button */}
         <button
           onClick={() => navigate("/admin")}
           className="flex items-center w-40 h-20 justify-center  text-2xl border-2 border-blue-600 rounded-2xl gap-2   shadow-md transition duration-300"
         >
-          < MdOutlineAdminPanelSettings className="text-2xl" />
+          <MdOutlineAdminPanelSettings className="text-2xl" />
           Admin
         </button>
       </div>

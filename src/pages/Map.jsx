@@ -1,12 +1,11 @@
-import { useSearchParams } from 'react-router-dom';
-import MapComponent from '../components/MapComponent';
+import { useSearchParams } from "react-router-dom";
+import MapComponent from "../components/MapComponent";
 
 const Map = () => {
   const [searchParams] = useSearchParams();
-  const lng = searchParams.get('lng');
-  const lat = searchParams.get('lat');
+  const lng = searchParams.get("lng");
+  const lat = searchParams.get("lat");
 
-  // Convert to numbers and handle potential errors
   const longitude = parseFloat(lng);
   const latitude = parseFloat(lat);
   if (isNaN(longitude) || isNaN(latitude)) {
@@ -15,7 +14,6 @@ const Map = () => {
 
   return (
     <div>
-     
       <MapComponent coordinates={[longitude, latitude]} />
     </div>
   );

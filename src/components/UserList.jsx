@@ -4,62 +4,70 @@ import UserCard from "./UserCard";
 import api from "../data/api";
 
 const UserList = ({ admin }) => {
-  const [users, setUsers] = useState([]); // All users from JSON file
-  const [filteredUsers, setFilteredUsers] = useState([]); // Users to display
-  const [searchTerm, setSearchTerm] = useState(""); // Search input value
-  const [filterType, setFilterType] = useState("all"); // Filter type: "all", "name", or "location"
+  const [users, setUsers] = useState([]);
+  const [filteredUsers, setFilteredUsers] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filterType, setFilterType] = useState("all");
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const fetchedUsers = await api.getUsers();
         if (fetchedUsers && fetchedUsers.length > 0) {
-          setUsers(fetchedUsers); // Setting the state properly
-          setFilteredUsers(fetchedUsers); // Filter users when page loads
+          setUsers(fetchedUsers);
+          setFilteredUsers(fetchedUsers);
         } else {
           console.log("No users found in the storage");
         }
       } catch (error) {
         console.error("Error fetching users:", error);
-        // Optionally handle the error case (show fallback UI)
       }
     };
-  
+
     fetchData();
   }, [users]);
-  
-  
-  
-  
 
   useEffect(() => {
     let updatedUsers = users;
 
-    // Apply search term filtering
     if (searchTerm.trim()) {
       const searchLower = searchTerm.toLowerCase();
       updatedUsers = users.filter((user) => {
         const nameMatch = user.fullName?.toLowerCase().includes(searchLower);
-        const locationMatch = user.coordinates && JSON.stringify(user.coordinates).includes(searchLower);
-        const descriptionMatch = user.description?.toLowerCase().includes(searchLower);
+        const locationMatch =
+          user.coordinates &&
+          JSON.stringify(user.coordinates).includes(searchLower);
+        const descriptionMatch = user.description
+          ?.toLowerCase()
+          .includes(searchLower);
         const interestsMatch = user.interests.some((interest) =>
           interest.toLowerCase().includes(searchLower)
         );
-        const emailMatch = user.contact?.email?.toLowerCase().includes(searchLower);
-        const phoneMatch = user.contact?.phone?.toLowerCase().includes(searchLower);
+        const emailMatch = user.contact?.email
+          ?.toLowerCase()
+          .includes(searchLower);
+        const phoneMatch = user.contact?.phone
+          ?.toLowerCase()
+          .includes(searchLower);
 
-        return nameMatch || locationMatch || descriptionMatch || interestsMatch || emailMatch || phoneMatch;
+        return (
+          nameMatch ||
+          locationMatch ||
+          descriptionMatch ||
+          interestsMatch ||
+          emailMatch ||
+          phoneMatch
+        );
       });
     }
 
-    // Apply filter type
     if (filterType === "name") {
       updatedUsers = updatedUsers.sort((a, b) =>
         a.fullName.localeCompare(b.fullName)
       );
     } else if (filterType === "location") {
-      updatedUsers = updatedUsers.sort((a, b) =>
-        (a.coordinates.latitude || 0) - (b.coordinates.latitude || 0)
+      updatedUsers = updatedUsers.sort(
+        (a, b) => (a.coordinates.latitude || 0) - (b.coordinates.latitude || 0)
       );
     }
 
@@ -67,8 +75,7 @@ const UserList = ({ admin }) => {
   }, [searchTerm, filterType, users]);
 
   return (
-    <div className="min-h-screen bg-gray-100 p-6">
-      {/* Search and Filter Bar */}
+    <div className="min-h-screen p-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 mb-6">
         <input
           type="text"
@@ -81,7 +88,9 @@ const UserList = ({ admin }) => {
           <button
             onClick={() => setFilterType("all")}
             className={`px-4 py-2 rounded-md ${
-              filterType === "all" ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-800"
+              filterType === "all"
+                ? "bg-blue-600 text-white"
+                : "bg-gray-200 text-gray-800"
             }`}
           >
             All
@@ -89,7 +98,9 @@ const UserList = ({ admin }) => {
           <button
             onClick={() => setFilterType("name")}
             className={`px-4 py-2 rounded-md ${
-              filterType === "name" ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-800"
+              filterType === "name"
+                ? "bg-blue-600 text-white"
+                : "bg-gray-200 text-gray-800"
             }`}
           >
             Filter by Name
@@ -97,7 +108,9 @@ const UserList = ({ admin }) => {
           <button
             onClick={() => setFilterType("location")}
             className={`px-4 py-2 rounded-md ${
-              filterType === "location" ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-800"
+              filterType === "location"
+                ? "bg-blue-600 text-white"
+                : "bg-gray-200 text-gray-800"
             }`}
           >
             Filter by Location
@@ -105,7 +118,6 @@ const UserList = ({ admin }) => {
         </div>
       </div>
 
-      {/* User Cards */}
       <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:px-30">
         {filteredUsers.map((user) => (
           <UserCard admin={admin} key={user.id} user={user} />

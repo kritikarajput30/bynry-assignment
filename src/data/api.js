@@ -1,23 +1,19 @@
 /* eslint-disable no-undef */
 import data from "./data.json";
 
-let users = [...data]; // In-memory data for simplicity
+let users = [...data];
 
-// Function to retrieve data from local storage or fallback to the initial data
 const getUsersFromStorage = () => {
-  const storedData = localStorage.getItem('userProfiles');
+  const storedData = localStorage.getItem("userProfiles");
   if (!storedData) {
     saveUsersToStorage(data);
   }
 
   return JSON.parse(storedData);
-
 };
 
-
-// Function to save data to local storage
 const saveUsersToStorage = (data) => {
-  localStorage.setItem('userProfiles', JSON.stringify(data));
+  localStorage.setItem("userProfiles", JSON.stringify(data));
 };
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -27,11 +23,10 @@ const api = {
     await delay(500);
     let usersFromStorage = getUsersFromStorage();
     if (usersFromStorage.length === 0) {
-      usersFromStorage = [...data]; // Fallback to in-memory JSON
+      usersFromStorage = [...data];
     }
     return usersFromStorage;
   },
-  
 
   async getUser(id) {
     await delay(500);
