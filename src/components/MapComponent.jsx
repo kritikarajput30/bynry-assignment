@@ -19,6 +19,7 @@ const MapComponent = ({ coordinates }) => {
 
     if (!coordinates || coordinates.length !== 2) {
       console.error('Please provide valid coordinates as props.');
+      console.log(JSON.stringify(coordinates));
       return;
     }
     mapboxgl.accessToken = accessToken;

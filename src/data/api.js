@@ -1,51 +1,51 @@
+import toast from "react-hot-toast";
 import data from "./data.json";
 
 let users = [...data]; // In-memory data for simplicity
 
-// Simulate an async delay
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const api = {
-  // Get all users
   async getUsers() {
-    await delay(500); // Simulate delay
+    await delay(500);
     return users;
   },
 
-  // Get a single user by ID
   async getUser(id) {
     await delay(500);
     return users.find((user) => user.id === id) || null;
   },
 
-  // Add a new user
   async addUser(newUser) {
     await delay(500);
     const id = users.length ? users[users.length - 1].id + 1 : 1;
     const user = { id, ...newUser };
     users.push(user);
+    toast.success("User added successfully!");
     return user;
   },
 
-  // Update an existing user
   async updateUser(id, updatedUser) {
     await delay(500);
     const index = users.findIndex((user) => user.id === id);
     if (index !== -1) {
       users[index] = { ...users[index], ...updatedUser };
+      toast.success("User updated successfully!");
       return users[index];
     }
+    toast.error("User not found.");
     return null;
   },
 
-  // Delete a user by ID
   async deleteUser(id) {
     await delay(500);
     const index = users.findIndex((user) => user.id === id);
     if (index !== -1) {
       const [deletedUser] = users.splice(index, 1);
+      toast.success("User deleted successfully!");
       return deletedUser;
     }
+    toast.error("User not found.");
     return null;
   },
 };

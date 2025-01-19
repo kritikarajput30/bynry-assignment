@@ -1,28 +1,31 @@
 import { useNavigate } from "react-router-dom";
 import { FaUser, FaUserShield } from "react-icons/fa";
+import { MdOutlineAdminPanelSettings } from "react-icons/md";
+import { FiUser } from "react-icons/fi";
 
 const Home = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
+    <div className="flex flex-col items-center justify-center h-screen bg-white">
       <h1 className="text-3xl font-bold mb-8 text-gray-800">Welcome</h1>
-      <div className="space-y-4">
+      <img src="/bynry_logo.jpg" alt="bynry" />
+      <div className="space-y-4 flex gap-8 items-center">
         {/* User Button */}
         <button
           onClick={() => navigate("/user")}
-          className="flex items-center px-6 py-3 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 transition duration-300"
+          className="flex items-center w-40 h-20 justify-center text-2xl border-2 border-blue-600 rounded-2xl gap-2 mt-4 shadow-md transition duration-300"
         >
-          <FaUser className="mr-2 text-lg" />
+          <FiUser className="text-2xl" />
           User
         </button>
 
         {/* Admin Button */}
         <button
           onClick={() => navigate("/admin")}
-          className="flex items-center px-6 py-3 bg-green-500 text-white rounded-lg shadow-md hover:bg-green-600 transition duration-300"
+          className="flex items-center w-40 h-20 justify-center  text-2xl border-2 border-blue-600 rounded-2xl gap-2   shadow-md transition duration-300"
         >
-          <FaUserShield className="mr-2 text-lg" />
+          < MdOutlineAdminPanelSettings className="text-2xl" />
           Admin
         </button>
       </div>
