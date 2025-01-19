@@ -2,7 +2,7 @@
   {
     "id": 1,
     "fullName": "John Doe",
-    "profilePicture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgWkA3X9cdGn3tggpvy_hnWe0QmRZW-DjwHw&s",
+    "profilePicture": "https://t3.ftcdn.net/jpg/06/78/09/78/360_F_678097871_G7OpoHQmiZTj4bHB7YW2HoH1syWfCbB9.jpg",
     "description": "Software Developer",
     "interests": ["Coding", "Gaming", "Traveling"],
     "contact": {
@@ -17,7 +17,7 @@
   {
     "id": 2,
     "fullName": "Jane Smith",
-    "profilePicture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRG9KnXOBG8VHZ8XhrPj9Y8BiR5R2L8HfDi1A&s",
+    "profilePicture": "https://media.gettyimages.com/id/1497148194/photo/portrait-city-and-happy-business-man-for-outdoor-travel-career-or-job-mindset-and-happiness.jpg?s=612x612&w=gi&k=20&c=RpDTuJRO-6i-EHjd9wMBQYY8fFgyACzDRnctsepIZbU=",
     "description": "UI/UX Designer",
     "interests": ["Design", "Photography", "Drawing"],
     "contact": {
@@ -32,7 +32,7 @@
   {
     "id": 3,
     "fullName": "Emily Davis",
-    "profilePicture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzM4nA9V8B0Lp3WhuQ6LqWQFuM2VQqEjX0Wg&s",
+    "profilePicture": "https://live.staticflickr.com/5252/5403292396_0804de9bcf_b.jpg",
     "description": "Project Manager",
     "interests": ["Leadership", "Reading", "Networking"],
     "contact": {
@@ -47,7 +47,7 @@
   {
     "id": 4,
     "fullName": "Michael Johnson",
-    "profilePicture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9wUoXxWyvV4D_PydE4YtfJ7jA7VpFt6xlUg&s",
+    "profilePicture": "https://wallpapercave.com/wp/wp11131009.jpg",
     "description": "Data Scientist",
     "interests": ["Data Analysis", "Machine Learning", "Python"],
     "contact": {
@@ -62,7 +62,7 @@
   {
     "id": 5,
     "fullName": "Laura Martinez",
-    "profilePicture": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Ruchi_cover-2.jpg/220px-Ruchi_cover-2.jpg",
+    "profilePicture": "https://media.istockphoto.com/id/1482169960/photo/airport-travel-and-portrait-of-woman-with-passport-flight-ticket-or-information-of.jpg?s=612x612&w=0&k=20&c=yDi-odLbd5lJ3Fv3yQropixu03KVABt6FNjhz7MPr4Q=",
     "description": "Software Tester",
     "interests": ["Quality Assurance", "Testing", "Exploration"],
     "contact": {
@@ -92,7 +92,7 @@
   {
     "id": 7,
     "fullName": "Sophia Brown",
-    "profilePicture": "https://img.freepik.com/free-photo/beautiful-smiling-young-woman-with-perfect-skin-face-natural-beauty-concept-isolated-grey-studio-background_144627-76888.jpg",
+    "profilePicture": "https://img.freepik.com/free-vector/minimalist-geometric-judith-s-tiktok-profile-picture_742173-12131.jpg",
     "description": "Graphic Designer",
     "interests": ["Illustration", "Typography", "Designing"],
     "contact": {
@@ -107,7 +107,7 @@
   {
     "id": 8,
     "fullName": "James White",
-    "profilePicture": "https://img.freepik.com/free-photo/beautiful-charming-girl-wears-pink-hoodie-visor-cap-back_176532-7775.jpg",
+    "profilePicture": "https://media.istockphoto.com/id/1450340623/photo/portrait-of-successful-mature-boss-senior-businessman-in-glasses-asian-looking-at-camera-and.webp?b=1&s=612x612&w=0&k=20&c=_3BHqzEwN7yDJ5o41g1ofHVbEp1NYbcqisUY_Sd1eyA=",
     "description": "Cybersecurity Analyst",
     "interests": ["Network Security", "Ethical Hacking", "Cryptography"],
     "contact": {
@@ -122,7 +122,7 @@
   {
     "id": 9,
     "fullName": "Olivia Harris",
-    "profilePicture": "https://img.freepik.com/free-photo/front-view-smiley-woman-with-earbuds_23-2148613052.jpg",
+    "profilePicture": "https://img.freepik.com/free-photo/beautiful-charming-girl-wears-pink-hoodie-visor-cap-back_176532-7775.jpg",
     "description": "Content Writer",
     "interests": ["Writing", "SEO", "Content Strategy"],
     "contact": {
@@ -137,7 +137,7 @@
   {
     "id": 10,
     "fullName": "William Lewis",
-    "profilePicture": "https://xsgames.co/randomusers/assets/avatars/male/74.jpg",
+    "profilePicture": "https://makepix.b-cdn.net/makepix_ea69ac4a-cad4-4783-a4a1-c94f709baa53/random-guy-picture-9688def1_0.png",
     "description": "DevOps Engineer",
     "interests": ["Cloud Infrastructure", "CI/CD", "Automation"],
     "contact": {
@@ -152,7 +152,7 @@
   {
     "id": 11,
     "fullName": "Emily Taylor",
-    "profilePicture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFI9EQcHFSOPN5QMpfL4thFzPKBlL4-f0l2TVYAiiKu3-_jAjzaCV0nvEdsSDkSoGp5sM&usqp=CAU",
+    "profilePicture": "https://media.istockphoto.com/id/1312595562/photo/photo-of-minded-happy-young-woman-hold-hand-chin-sit-living-room-stay-home-weekend-indoors.jpg?s=612x612&w=is&k=20&c=SzvaPmpYan9CbCEh3CWDS_UEbpnfpE_qpzoZynn1CGk=",
     "description": "Mobile App Developer",
     "interests": ["Android", "iOS Development", "Flutter"],
     "contact": {
