@@ -79,40 +79,34 @@ const UserCard = ({ user, admin = true, onUserUpdate }) => {
   };
 
   return (
-    <div className="max-w-lg bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
+    <div className="max-w-sm bg-white rounded-lg shadow-md border flex items-center border-gray-200">
       <img
-        className="w-full h-48 object-cover"
+        className="w-28 h-full object-cover"
         src={user.profilePicture}
         alt={`${user.fullName}'s profile`}
       />
-      <div className="p-6">
-        <h2 className="text-xl font-bold text-gray-800">{user.fullName}</h2>
+      <div className="p-4">
+        <h2 className="text-lg font-bold text-gray-800">{user.fullName}</h2>
         <p className="text-gray-600 mt-2">{user.description}</p>
-        <div className="mt-4">
-          <a
-            href={`/profile/${user.id}`}
-            className="text-blue-500 text-sm underline"
-          >
-            View Profile
-          </a>
-        </div>
+        <a href={`/profile/${user.id}`} className="text-blue-600 underline">
+          View Profile
+        </a>
         <button
-          className="border-green-500 border-2 shadow-sm px-6 py-2 text-sm mt-4 text-green-500 rounded-md flex items-center"
+          className="border-green-500 border-2 shadow-md p-2 text-sm my-4 text-green-500 flex items-center"
           onClick={(e) => {
             e.stopPropagation();
             handleSummaryClick();
           }}
         >
-          Summary
-          <LuMapPin className="ml-2 text-green-500 text-xl" />
+          Summary <LuMapPin className="text-green-500 rounded-md text-2xl" />
         </button>
         {admin && (
-          <div className="flex space-x-3 mt-4">
+          <div className="flex space-x-2 mt-4">
             <button onClick={handleUpdateClick}>
-              <FiEdit2 className="text-blue-500 h-8 w-8 bg-gray-100 p-2 rounded-md text-xl" />
+              <FiEdit2 className="text-blue-600 bg-gray-50 rounded-md text-2xl" />
             </button>
             <button onClick={handleDeleteClick}>
-              <AiOutlineDelete className="text-red-500 h-8 w-8 bg-gray-100 p-2 rounded-md text-xl" />
+              <AiOutlineDelete className="text-red-600 bg-gray-50 rounded-md text-2xl" />
             </button>
           </div>
         )}
