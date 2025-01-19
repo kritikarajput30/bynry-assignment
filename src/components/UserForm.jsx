@@ -66,7 +66,7 @@ const UserForm = ({ user, onSubmit, onClose }) => {
 
   return (
     <div className="fixed inset-0 bg-gray-500 bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white p-4 rounded-lg w-2/3 max-h-[80vh] overflow-y-auto">
+      <div className="bg-white p-4 rounded-lg w-11/12 sm:w-2/3 lg:w-1/2 max-h-[80vh] overflow-y-auto">
         <h2 className="text-lg font-semibold mb-2">
           {user ? "Update User" : "Create User"}
         </h2>
