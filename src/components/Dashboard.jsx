@@ -24,21 +24,25 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="relative flex bg-gray-100 min-h-screen">
+    <div className="flex bg-gray-100">
       {loading && <Loader />}
+
+      {/* Drawer background overlay for mobile view */}
       {drawerOpen && (
         <div
-          className="fixed inset-0 bg-gray-400 bg-opacity-10 z-40"
+          className="fixed inset-0 bg-gray-400 bg-opacity-50 z-40"
           onClick={() => toggleDrawer(false)}
-        ></div>
+        />
       )}
 
+      {/* Drawer */}
       <div
-        className={`fixed top-0 left-0 h-full w-64 bg-white shadow-2xl z-50 transform ${
+        className={`fixed top-0 left-0 h-full w-64 bg-white shadow-2xl transform ${
           drawerOpen ? "translate-x-0" : "-translate-x-full"
-        } transition-transform duration-300 ease-in-out`}
+        } transition-transform duration-300 ease-in-out lg:translate-x-0 z-50`}
       >
         <div className="p-4 relative">
+          {/* Close Button for Drawer */}
           <MdClose
             className="absolute top-4 right-4 text-2xl cursor-pointer text-gray-700 lg:hidden"
             onClick={() => toggleDrawer(false)}
@@ -59,11 +63,9 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <div
-        className={`flex-1 p-6 transition-all duration-300 ease-in-out ${
-          drawerOpen ? "filter blur-sm" : ""
-        }`}
-      >
+      {/* Main Content */}
+      <div className="flex-1 p-6 lg:ms-64">
+        {/* Header */}
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-4">
             <h2 className="text-lg md:text-xl font-bold text-gray-800 flex items-center gap-2">
@@ -74,7 +76,7 @@ const Dashboard = () => {
           <div className="flex items-center gap-2">
             <button
               onClick={toggleFlip}
-              className="bg-blue-600 px-2 md:px-2 py-2 rounded-md flex items-center shadow-md gap-1 text-white text-sm md:text-base"
+              className="bg-blue-600 px-3 md:px-4 py-2 flex items-center shadow-md gap-1 text-white text-sm md:text-base"
             >
               New User
               <IoPersonAddOutline className="text-white text-lg md:text-xl" />
@@ -93,9 +95,11 @@ const Dashboard = () => {
           </div>
         </div>
 
+        {/* User List */}
         <UserList admin={true} />
       </div>
 
+      {/* User Form */}
       {toggleOpen && (
         <UserForm user={null} onSubmit={null} onClose={toggleFlip} />
       )}
