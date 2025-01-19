@@ -21,48 +21,46 @@ const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 const api = {
   async getUsers() {
     await delay(500);
-    let usersFromStorage = getUsersFromStorage();
-    if (usersFromStorage.length === 0) {
-      usersFromStorage = [...data];
-    }
-    return usersFromStorage;
+    return getUsersFromStorage();
   },
 
   async getUser(id) {
     await delay(500);
-    users = getUsersFromStorage();
-    return users.find((user) => user.id === id) || null;
+    const usersFromStorage = getUsersFromStorage();
+    return usersFromStorage.find((user) => user.id === id) || null;
   },
 
   async addUser(newUser) {
     await delay(500);
-    users = getUsersFromStorage();
-    const id = users.length ? users[users.length - 1].id + 1 : 1;
+    const usersFromStorage = getUsersFromStorage();
+    const id = usersFromStorage.length
+      ? usersFromStorage[usersFromStorage.length - 1].id + 1
+      : 1;
     const user = { id, ...newUser };
-    users.push(user);
-    saveUsersToStorage(users);
+    usersFromStorage.push(user);
+    saveUsersToStorage(usersFromStorage);
     return user;
   },
 
   async updateUser(id, updatedUser) {
     await delay(500);
-    users = getUsersFromStorage();
-    const index = users.findIndex((user) => user.id === id);
+    const usersFromStorage = getUsersFromStorage();
+    const index = usersFromStorage.findIndex((user) => user.id === id);
     if (index !== -1) {
-      users[index] = { ...users[index], ...updatedUser };
-      saveUsersToStorage(users);
-      return users[index];
+      usersFromStorage[index] = { ...usersFromStorage[index], ...updatedUser };
+      saveUsersToStorage(usersFromStorage);
+      return usersFromStorage[index];
     }
     return null;
   },
 
   async deleteUser(id) {
     await delay(500);
-    users = getUsersFromStorage();
-    const index = users.findIndex((user) => user.id === id);
+    const usersFromStorage = getUsersFromStorage();
+    const index = usersFromStorage.findIndex((user) => user.id === id);
     if (index !== -1) {
-      const [deletedUser] = users.splice(index, 1);
-      saveUsersToStorage(users);
+      const [deletedUser] = usersFromStorage.splice(index, 1);
+      saveUsersToStorage(usersFromStorage);
       return deletedUser;
     }
     return null;

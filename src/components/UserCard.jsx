@@ -79,57 +79,44 @@ const UserCard = ({ user, admin = true, onUserUpdate }) => {
   };
 
   return (
-    <div className="max-w-md w-full bg-gradient-to-r from-blue-50 to-white rounded-lg shadow-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-shadow duration-300">
-      <div className="relative">
-        <img
-          className="w-full h-48 object-cover object-center"
-          src={user.profilePicture}
-          alt={`${user.fullName}'s profile`}
-        />
-        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-transparent to-transparent p-4">
-          <h2 className="text-white text-lg font-bold">{user.fullName}</h2>
-          <p className="text-gray-200 text-sm">{user.description}</p>
+    <div className="max-w-lg bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
+      <img
+        className="w-full h-48 object-cover"
+        src={user.profilePicture}
+        alt={`${user.fullName}'s profile`}
+      />
+      <div className="p-6">
+        <h2 className="text-xl font-bold text-gray-800">{user.fullName}</h2>
+        <p className="text-gray-600 mt-2">{user.description}</p>
+        <div className="mt-4">
+          <a
+            href={`/profile/${user.id}`}
+            className="text-blue-500 text-sm underline"
+          >
+            View Profile
+          </a>
         </div>
-      </div>
-
-      <div className="p-6 space-y-4">
-        <a
-          href={`/profile/${user.id}`}
-          className="block text-blue-600 font-semibold text-center underline hover:text-blue-800"
-        >
-          View Full Profile
-        </a>
-
         <button
-          className="w-full bg-blue-700 text-white py-2 px-4 rounded-lg flex items-center justify-center space-x-2 hover:bg-blue-600"
+          className="border-green-500 border-2 shadow-sm px-6 py-2 text-sm mt-4 text-green-500 rounded-md flex items-center"
           onClick={(e) => {
             e.stopPropagation();
             handleSummaryClick();
           }}
         >
-          <LuMapPin className="text-white text-lg" />
-          <span>Summary</span>
+          Summary
+          <LuMapPin className="ml-2 text-green-500 text-xl" />
         </button>
-
         {admin && (
-          <div className="flex justify-between items-center">
-            <button
-              onClick={handleUpdateClick}
-              className="flex items-center justify-center bg-blue-100 text-blue-600 p-2 rounded-full hover:bg-blue-200"
-            >
-              <FiEdit2 className="text-xl" />
+          <div className="flex space-x-3 mt-4">
+            <button onClick={handleUpdateClick}>
+              <FiEdit2 className="text-blue-500 h-8 w-8 bg-gray-100 p-2 rounded-md text-xl" />
             </button>
-
-            <button
-              onClick={handleDeleteClick}
-              className="flex items-center justify-center bg-red-100 text-red-600 p-2 rounded-full hover:bg-red-200"
-            >
-              <AiOutlineDelete className="text-xl" />
+            <button onClick={handleDeleteClick}>
+              <AiOutlineDelete className="text-red-500 h-8 w-8 bg-gray-100 p-2 rounded-md text-xl" />
             </button>
           </div>
         )}
       </div>
-
       {admin && isModalOpen && (
         <UserForm
           user={modalUser}

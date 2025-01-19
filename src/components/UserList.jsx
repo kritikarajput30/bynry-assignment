@@ -4,23 +4,24 @@ import UserCard from "./UserCard";
 import api from "../data/api";
 
 const UserList = ({ admin }) => {
-  const [users, setUsers] = useState([]);
-  const [filteredUsers, setFilteredUsers] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [filterType, setFilterType] = useState("all");
+  const [users, setUsers] = useState([]); // All users from JSON file
+  const [filteredUsers, setFilteredUsers] = useState([]); // Users to display
+  const [searchTerm, setSearchTerm] = useState(""); // Search input value
+  const [filterType, setFilterType] = useState("all"); // Filter type: "all", "name", or "location"
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const fetchedUsers = await api.getUsers();
         if (fetchedUsers && fetchedUsers.length > 0) {
-          setUsers(fetchedUsers);
-          setFilteredUsers(fetchedUsers);
+          setUsers(fetchedUsers); // Setting the state properly
+          setFilteredUsers(fetchedUsers); // Filter users when page loads
         } else {
           console.log("No users found in the storage");
         }
       } catch (error) {
         console.error("Error fetching users:", error);
+        // Optionally handle the error case (show fallback UI)
       }
     };
 
@@ -30,6 +31,7 @@ const UserList = ({ admin }) => {
   useEffect(() => {
     let updatedUsers = users;
 
+    // Apply search term filtering
     if (searchTerm.trim()) {
       const searchLower = searchTerm.toLowerCase();
       updatedUsers = users.filter((user) => {
@@ -61,6 +63,7 @@ const UserList = ({ admin }) => {
       });
     }
 
+    // Apply filter type
     if (filterType === "name") {
       updatedUsers = updatedUsers.sort((a, b) =>
         a.fullName.localeCompare(b.fullName)
@@ -75,7 +78,8 @@ const UserList = ({ admin }) => {
   }, [searchTerm, filterType, users]);
 
   return (
-    <div className="min-h-screen p-6">
+    <div className="min-h-screen bg-gray-100 p-6">
+      {/* Search and Filter Bar */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 mb-6">
         <input
           type="text"
@@ -118,6 +122,7 @@ const UserList = ({ admin }) => {
         </div>
       </div>
 
+      {/* User Cards */}
       <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:px-30">
         {filteredUsers.map((user) => (
           <UserCard admin={admin} key={user.id} user={user} />
