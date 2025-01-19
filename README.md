@@ -33,3 +33,7 @@ This project includes a **User Card Component** created with **React** and **Tai
    ```bash
    npm start
    ```
+
+Here is the deployed link:
+
+https://bynry-assignment-olive.vercel.app/
